@@ -1,10 +1,9 @@
 package handlers
 
 import (
-	"github.com/KadirbekSharau/go-bookings/pkg/config"
-	"github.com/KadirbekSharau/go-bookings/pkg/models"
-	"github.com/KadirbekSharau/go-bookings/pkg/render"
-	"fmt"
+	"github.com/tsawler/bookings-app/pkg/config"
+	"github.com/tsawler/bookings-app/pkg/models"
+	"github.com/tsawler/bookings-app/pkg/render"
 	"net/http"
 )
 
@@ -44,7 +43,6 @@ func (m *Repository) About(w http.ResponseWriter, r *http.Request) {
 
 	remoteIP := m.App.Session.GetString(r.Context(), "remote_ip")
 	stringMap["remote_ip"] = remoteIP
-	fmt.Println(remoteIP)
 
 	// send data to the template
 	render.RenderTemplate(w, "about.page.tmpl", &models.TemplateData{
